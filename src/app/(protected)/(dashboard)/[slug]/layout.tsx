@@ -1,3 +1,4 @@
+import Sidebar from '@/components/global/sidebar'
 import React from 'react'
 
 type Props = {
@@ -8,11 +9,12 @@ type Props = {
 }
 
 const layout = ({children,params}: Props) => {
+    console.log(params.slug)
   return (
     <div className='
     p-3'>
-
-        
+     <Sidebar slug={params.slug}/>
+       
     </div>
   )
 }
