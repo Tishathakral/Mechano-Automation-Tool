@@ -23,6 +23,7 @@ const Sidebar = ({ slug }: Props) => {
     radial 
     fixed 
     left-0 
+    hidden
     lg:inline-block
     border-[#545454] 
     bg-gradient-to-b from-[#768BDD] 
@@ -40,6 +41,7 @@ const Sidebar = ({ slug }: Props) => {
        w-full 
        h-full 
        p-3 
+       
        bg-[#0e0e0e] 
        bg-opacity-90 
        bg-clip-padding 
