@@ -6,12 +6,16 @@ import React from "react";
 import Items from "../sidebar/items";
 import { Separator } from "@/components/ui/separator";
 import ClerkAuthState from "../clerk-auth-state";
-import { HelpCircleIcon, Menu, Search, SearchIcon } from "lucide-react";
+import { HelpCircleIcon, Menu } from "lucide-react";
 import UpgradeCard from "../sidebar/upgrade";
+
 
 import Sheet from "../sheet";
 import LogoSmall from "@/images/logo-small";
 import CreateAutomation from "../create-automation";
+import Search from "@/components/global/search";
+import { Notifications } from "./notifications";
+import MainBreadCrumb from "../main-bread-crumb";
 
 type Props = {
   slug: string;
@@ -71,11 +75,12 @@ const Navbar: React.FC<Props> = ({ slug }) => {
               </div>
             </Sheet>
           </span>
-        <SearchIcon/>
+        <Search />
         <CreateAutomation/>
+        <Notifications  />
         </div>
+        <MainBreadCrumb page={page === slug ? 'Home' : page} slug={slug} />
       </div>
     )
   );
-};
-export default Navbar;
+};export default Navbar;

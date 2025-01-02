@@ -17,6 +17,7 @@ const layout = ({children,params}: Props) => {
      <Sidebar slug={params.slug}/>
      <div className='lg:ml-[250px] lg:pl-10 lg:py-5 flex flex-col overflow-auto'>
       <Navbar slug={params.slug}/>
+      {children}
      </div>
        
     </div>
