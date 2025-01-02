@@ -5,13 +5,7 @@ import Items from './items'
 import { Separator } from '@/components/ui/separator'
 import ClerkAuthState from '../clerk-auth-state'
 import { HelpCircleIcon } from 'lucide-react'
-
-// import { LogoSmall } from '@/svgs/logo-small'
-// import React from 'react'
-// import Items from './items'
-// import { Separator } from '@/components/ui/separator'
-// import ClerkAuthState from '../clerk-auth-state'
-// import { HelpDuoToneWhite } from '@/icons'
+import UpgradeCard from './upgrade'
 // import { SubscriptionPlan } from '../subscription-plan'
 // import UpgradeCard from './upgrade'
 
@@ -75,11 +69,11 @@ const Sidebar = ({ slug }: Props) => {
             <p className="text-[#9B9CA0]">Help</p>
           </div>
         </div>
-        {/* <SubscriptionPlan type="FREE">
+        {/* <SubscriptionPlan type="FREE"> */}
           <div className="flex-1 flex flex-col justify-end">
             <UpgradeCard />
           </div>
-        </SubscriptionPlan> */}
+        {/* </SubscriptionPlan> */}
       </div>
     </div>
   )
