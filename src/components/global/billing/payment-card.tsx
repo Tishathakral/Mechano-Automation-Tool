@@ -90,7 +90,7 @@ function PaymentCard({ current, label, landing }: Props) {
           </Button>
         ) : (
           <Button
-            className="rounded-full mt-5 bg-background-80 text-white hover:text-background-80"
+            className="rounded-full mt-5 bg-background-80 dark:text-white text-black hover:text-background-80"
             disabled={label === current}
           >
             {label === current
