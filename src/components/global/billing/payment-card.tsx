@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { PLANS } from "@/constants/pages";
 import { cn } from "@/lib/utils";
 import { CircleCheckIcon } from "lucide-react";
@@ -72,6 +73,33 @@ function PaymentCard({ current, label, landing }: Props) {
             {feature}
           </p>
         ))}
+         {landing ? (
+          <Button
+            className={cn(
+              'rounded-full mt-5',
+              label === 'PRO'
+                ? 'bg-gradient-to-r from-indigo-500 text-white via-purple-500 to-pink-500'
+                : 'bg-background-80 text-white hover:text-background-80'
+            )}
+          >
+            {label === current
+              ? 'Get Started'
+              : current === 'PRO'
+              ? 'Free'
+              : 'Get Started'}
+          </Button>
+        ) : (
+          <Button
+            className="rounded-full mt-5 bg-background-80 text-white hover:text-background-80"
+            disabled={label === current}
+          >
+            {label === current
+              ? 'Active'
+              : current === 'PRO'
+              ? 'Downgrade'
+              : 'Upgrade'}
+          </Button>
+        )}
       </div>
     </div>
   );

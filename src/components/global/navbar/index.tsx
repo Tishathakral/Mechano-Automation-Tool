@@ -16,6 +16,7 @@ import CreateAutomation from "../create-automation";
 import Search from "@/components/global/search";
 import { Notifications } from "./notifications";
 import MainBreadCrumb from "../main-bread-crumb";
+import { ModeToggle } from "@/components/mode-toggle";
 
 type Props = {
   slug: string;
@@ -57,10 +58,15 @@ const Navbar: React.FC<Props> = ({ slug }) => {
                     className="bg-[#333336]"
                   />
                 </div>
+               
                 <div className="px-3 flex flex-col gap-y-5">
                   <div className="flex gap-x-2 items-center">
                     <ClerkAuthState />
                     <p className="text-[#9B9CA0]">Profile</p>
+                  </div>
+                  <div className="flex gap-x-2 items-center">
+                  <ModeToggle />
+                    <p className="text-[#9B9CA0]">Dark Mode</p>
                   </div>
                   <div className="flex gap-x-2 items-center">
                     <HelpCircleIcon className="h-6 w-6 bg-gray-500 rounded-full" />
