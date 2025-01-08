@@ -18,7 +18,7 @@ const AutomationList = (props: Props) => {
 
   const { latestVariable } = useMutationDataState(['create-automation'])
   console.log(latestVariable)
-  const { paths } = usePaths()
+  const { pathname } = usePaths()
   
   const optimisticUiData = useMemo(() => {
     if ((latestVariable && latestVariable?.variables &&  data)) {
@@ -36,12 +36,11 @@ const AutomationList = (props: Props) => {
       </div>
     )
   }
-
   return (
     <div className="flex flex-col gap-y-3">
-      {data.data!.map((automation: any) => (
+      {optimisticUiData.data!.map((automation) => (
         <Link
-          href={`${paths}/${automation.id}`}
+          href={`${pathname}/${automation.id}`}
           key={automation.id}
           className="bg-[#1D1D1D] hover:opacity-80 transition duration-100 rounded-xl p-5 border-[1px] radial--gradient--automations flex border-[#545454]"
         >
@@ -104,7 +103,8 @@ const AutomationList = (props: Props) => {
             )}
           </div>
         </Link>
-      ))}    </div>
+      ))}
+    </div>
   )
 }
 

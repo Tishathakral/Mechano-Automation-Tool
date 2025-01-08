@@ -2,11 +2,9 @@ import { usePathname } from 'next/navigation'
 
 export const usePaths = () => {
   const pathname = usePathname()
-  const paths = pathname.split('/')
-   let page = paths[paths.length - 1]
-   return {
-     paths,
-     page,
-   }
+  const path = pathname.split('/')
+  let page = path[path.length - 1]
+  return { page, pathname }
 }
     
+
