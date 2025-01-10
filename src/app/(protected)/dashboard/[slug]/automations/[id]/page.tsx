@@ -1,6 +1,5 @@
 import { getAutomationInfo } from '@/actions/automations'
 // import PostNode from '@/components/global/automations/post/node'
-// import ThenNode from '@/components/global/automations/then/node'
 import Trigger from '@/components/global/automations/trigger'
 import AutomationsBreadCrumb from '@/components/global/bread-crumbs/automations'
 import { PrefetchUserAutomation } from '@/react-query/prefetch'
@@ -13,6 +12,7 @@ import {
 import { PiSealWarning } from "react-icons/pi";
 
 import React from 'react'
+import ThenNode from '@/components/global/automations/then/node'
 
 type Props = {
   params: { id: string }
@@ -40,8 +40,8 @@ const Page = async ({ params }: Props) => {
           </div>
           <Trigger id={params.id} />
         </div>
-        {/* <ThenNode id={params.id} />
-        <PostNode id={params.id} /> */}
+        <ThenNode id={params.id} />
+        {/* <PostNode id={params.id} /> */}
       </div>
     </HydrationBoundary>
   )

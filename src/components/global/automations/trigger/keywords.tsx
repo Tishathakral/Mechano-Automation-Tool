@@ -2,6 +2,7 @@ import { Input } from '@/components/ui/input'
 import { useKeywords } from '@/hooks/use-automations'
 import { useMutationDataState } from '@/hooks/use-mutation-data'
 import { useQueryAutomation } from '@/hooks/use-queries'
+import { X } from 'lucide-react'
 import React from 'react'
 
 type Props = {
@@ -29,6 +30,11 @@ export const Keywords = ({ id }: Props) => {
                   key={word.id}
                 >
                   <p>{word.word}</p>
+                  <X size={20 }
+                  onClick={() => deleteMutation(
+                    {id: word.id}
+                  )}
+                  />
                 </div>
               )
           )}
