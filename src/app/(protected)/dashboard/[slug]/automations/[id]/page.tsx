@@ -13,6 +13,7 @@ import { PiSealWarning } from "react-icons/pi";
 
 import React from 'react'
 import ThenNode from '@/components/global/automations/then/node'
+import PostNode from '@/components/global/automations/post/node'
 
 type Props = {
   params: { id: string }
@@ -41,7 +42,7 @@ const Page = async ({ params }: Props) => {
           <Trigger id={params.id} />
         </div>
         <ThenNode id={params.id} />
-        {/* <PostNode id={params.id} /> */}
+        <PostNode id={params.id} />
       </div>
     </HydrationBoundary>
   )

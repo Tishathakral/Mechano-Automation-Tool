@@ -1,85 +1,82 @@
-import { Button } from "@/components/ui/button";
-import { PLANS } from "@/constants/pages";
-import { cn } from "@/lib/utils";
-import { CircleCheckIcon } from "lucide-react";
-import React from "react";
+import { Button } from '@/components/ui/button'
+import { PLANS } from '@/constants/pages'
+import { cn } from '@/lib/utils'
+import { CircleCheck } from 'lucide-react'
+import React from 'react'
 
 type Props = {
-  label: string;
-  current: "PRO" | "FREE";
-  landing?: boolean;
-};
+  label: string
+  current: 'PRO' | 'FREE'
+  landing?: boolean
+}
 
-function PaymentCard({ current, label, landing }: Props) {
+const PaymentCard = ({ current, label, landing }: Props) => {
   return (
     <div
       className={cn(
         label !== current
-          ? "bg-in-active dark:bg-gray-800"
-          : "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
-        "p-[2px] rounded-xl overflow-hidden"
+          ? 'bg-in-active dark:bg-gray-800'
+          : 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500',
+        'p-[2px] rounded-xl overflow-hidden'
       )}
     >
       <div
         className={cn(
-          landing && "radial--gradient--pink",
-          "flex flex-col pl-5 py-5 pr-10 rounded-xl bg-white dark:bg-gray-900"
+          landing && 'radial--gradient--pink',
+          'flex flex-col rounded-xl pl-5 py-5 pr-10 bg-background-90 dark:bg-gray-900 h-full'
         )}
       >
         {landing ? (
-          <h2 className="text-2xl text-gray-900 dark:text-gray-100">
-            {label === "PRO" && "Premium Plan"}
-            {label === "FREE" && "Standard"}
+          <h2 className="text-2xl text-gray-900 dark:text-white">
+            {label === 'PRO' && 'Premium Plan'}
+            {label === 'FREE' && 'Standard'}
           </h2>
         ) : (
-          <h2 className="text-2xl text-gray-900 dark:text-gray-100">
+          <h2 className="text-2xl text-gray-900 dark:text-white">
             {label === current
-              ? "Your Current Plan"
-              : current === "PRO"
-              ? "Downgrade"
-              : "Upgrade"}
+              ? 'Your Current Plan'
+              : current === 'PRO'
+              ? 'Downgrade'
+              : 'Upgrade'}
           </h2>
         )}
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-          This is what your plan includes for automations and AI features.
+        <p className="text-text-secondary dark:text-gray-400 text-sm mb-2">
+          This is what your plan covers for automations and AI features
         </p>
-        {label === "PRO" ? (
+        {label === 'PRO' ? (
           <span className="bg-gradient-to-r text-3xl from-indigo-500 via-purple-500 font-bold to-pink-500 bg-clip-text text-transparent">
             Smart AI
           </span>
         ) : (
-          <p className="font-bold mt-2 text-gray-600 dark:text-gray-400">
+          <p className="font-bold mt-2 text-text-secondary dark:text-gray-400">
             Standard
           </p>
         )}
-        {label === "PRO" ? (
-          <p className="mb-2">
-            <b className="text-xl text-gray-900 dark:text-gray-100">$99</b>
-            /month
+        {label === 'PRO' ? (
+          <p className="mb-2 dark:text-white">
+            <b className="text-xl">$99</b>/month
           </p>
         ) : (
-          <p className="mb-2">
-            <b className="text-xl text-gray-900 dark:text-gray-100">$0</b>
-            /month
-          </p>
+          <p className="text-xl mb-2 dark:text-white">Free</p>
         )}
 
-        {PLANS[label === "PRO" ? 1 : 0].features.map((feature, index) => (
+        {PLANS[label === 'PRO' ? 1 : 0].features.map((i) => (
           <p
-            key={index}
-            className="mt-2 text-gray-600 dark:text-gray-400 flex gap-4"
+            key={i}
+            className="mt-2 text-muted-foreground dark:text-gray-400 flex gap-2"
           >
-            <CircleCheckIcon className="h-4 w-4 text-indigo-500" />
-            {feature}
+            <CircleCheck className="text-indigo-500 dark:text-indigo-600" />
+            {i}
           </p>
         ))}
-         {landing ? (
+
+        {landing ? (
           <Button
             className={cn(
               'rounded-full mt-5',
               label === 'PRO'
                 ? 'bg-gradient-to-r from-indigo-500 text-white via-purple-500 to-pink-500'
-                : 'bg-background-80 text-white hover:text-background-80'
+                : 'bg-background-80 dark:bg-gray-800 text-white hover:text-background-80 dark:hover:text-gray-800'
             )}
           >
             {label === current
@@ -90,7 +87,11 @@ function PaymentCard({ current, label, landing }: Props) {
           </Button>
         ) : (
           <Button
-            className="rounded-full mt-5 bg-background-80 dark:text-white text-black hover:text-background-80"
+            className={cn(
+              'rounded-full mt-5',
+              'bg-background-80 dark:bg-gray-800 text-white hover:text-background-80 hover:text-blue-700',
+              { 'opacity-50 cursor-not-allowed': label === current }
+            )}
             disabled={label === current}
           >
             {label === current
@@ -102,7 +103,7 @@ function PaymentCard({ current, label, landing }: Props) {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default PaymentCard;
+export default PaymentCard
