@@ -16,7 +16,6 @@ export const onCurrentUser = async () => {
 
 export const onBoardUser = async () => {
   const user = await onCurrentUser()
-  // console.log(user)
   try {
     const found = await findUser(user.id)
     if (found) {
@@ -27,7 +26,7 @@ export const onBoardUser = async () => {
 
         const days = Math.round(time_left / (1000 * 3600 * 24))
         if (days < 5) {
-          console.log('refresh')
+      
 
           const refresh = await refreshToken(found.integrations[0].token)
 
@@ -44,7 +43,7 @@ export const onBoardUser = async () => {
           }
         }
       }
-      console.log(found)
+   
 
       return {
         status: 200,
@@ -62,8 +61,7 @@ export const onBoardUser = async () => {
     )
     return { status: 201, data: created }
   } catch (error) {
-    console.log(error)
-    return { status: 500 }
+    return { status: 500}
   }
 }
 
