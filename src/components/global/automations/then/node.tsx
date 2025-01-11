@@ -5,6 +5,7 @@ import React from 'react'
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { MdOutlineSmartToy } from "react-icons/md";
 import { PiSealWarning } from "react-icons/pi";
+// import PostButton from '../post';
 
 
 type Props = {
@@ -51,7 +52,7 @@ const ThenNode = ({ id }: Props) => {
       {/* {data.data.posts.length > 0 ? (
         <></>
       ) : commentTrigger ? (
-        <PostButton id={id} />
+        <PostButton />
       ) : (
         <></>
       )} */}
