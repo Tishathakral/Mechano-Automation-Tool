@@ -10,7 +10,7 @@ const LogoSmall: React.FC = () => {
         alt="Company Logo"
         width={200} // Set your desired width
         height={200} // Set your desired height
-        className="rounded-md shadow-md"
+        className="rounded-md"
       />
     </div>
   );
